@@ -10,14 +10,19 @@ package frc.robot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
-
+import frc.robot.RobotMap;
 /**
  * This class is the glue that binds the controls on the physical operator
  * interface to the commands and command groups that allow control of the robot.
  */
 public class OI {
 
-public Joystick motorJoystick = new Joystick(0);
+private Joystick motorJoystick = new Joystick(RobotMap.DRIVER_CONTROLLER);
+
+public double GetDriverRawAxis(int axis){
+     return motorJoystick.getRawAxis(axis);
+}
+
 public Button cwButton = new JoystickButton(motorJoystick, 2);
 public Button ccwButton = new JoystickButton(motorJoystick, 1);
 public Button allignButton = new JoystickButton(motorJoystick, 3);

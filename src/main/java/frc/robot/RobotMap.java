@@ -7,8 +7,6 @@
 
 package frc.robot;
 
-import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
-
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into
  * to a variable name. This provides flexibility changing wiring, makes checking
@@ -17,7 +15,10 @@ import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
  */
 public class RobotMap {
  
- public static final WPI_TalonSRX motorControl = new WPI_TalonSRX(2);
+ public static final int MOTOR_LEFT_1_ID = 2;
+public static final int DRIVER_CONTROLLER = 0;
+public static final int JOYSTICK_Y = 1;
+
  
   // For example to map the left and right motors, you could define the
   // following variables to use with your drivetrain subsystem.

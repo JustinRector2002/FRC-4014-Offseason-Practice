@@ -16,7 +16,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class ExampleCommand extends Command {
   public ExampleCommand() {
     // Use requires() here to declare subsystem dependencies
-    requires(Robot.ExampleMotorControl);
+    requires(Robot.drivetrain);
   }
 
   // Called just before this Command runs the first time
@@ -28,10 +28,10 @@ public class ExampleCommand extends Command {
   @Override
   protected void execute() {
 if(SmartDashboard.getNumber("LimelightX", 0.0) != 0) {
-  Robot.ExampleMotorControl.turnccw();
+  Robot.drivetrain.setleftMotor(0.5);
 }
 else
-   Robot.ExampleMotorControl.Hold();
+   Robot.drivetrain.setleftMotor(0.0);
   }
 
 
@@ -45,11 +45,13 @@ else
   // Called once after isFinished returns true
   @Override
   protected void end() {
+    Robot.drivetrain.setleftMotor(0.0);
   }
 
   // Called when another command which requires one or more of the same
   // subsystems is scheduled to run
   @Override
   protected void interrupted() {
+    end();
   }
 }
